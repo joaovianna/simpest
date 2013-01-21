@@ -51,7 +51,7 @@ var app = {
 
 
 };
-
+alert("entrou");
 if(true)
 {
     socket = io.connect('http://jornal.us:7777');
