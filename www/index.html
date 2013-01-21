@@ -26,6 +26,8 @@
        <link rel="stylesheet" href="jquery.mobile-1.2.0/jquery.mobile-1.2.0.css" />
         
         <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+        <script src="http://jornal.us:7777/socket.io/socket.io.js"></script>
+
         <script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
         
         
@@ -44,12 +46,21 @@
                              $.support.cors = true;
                              $.mobile.allowCrossDomainPages = true;
                              });
+            
             function busca_radio(idradio)
             {
                 $.mobile.changePage($("#two"), "none");
                 $.get("http://www.jornal.us/cordova/radio/radio.php?radio_id="+idradio, function(data){
                       $("#ppp").html(data);
                       $("#controles").show();
+                      });
+            }
+            function busca_playerj()
+            {
+                alert("buscou");
+                $.mobile.changePage($("#page3"), "none");
+                $.get("http://www.jornal.us/cordova/radio/radioj.php?radio_id="+idradio, function(data){
+                      $("#ppp").html(data);
                       });
             }
             </script>
@@ -70,7 +81,9 @@
                  <div  id="result"></div>
                 <div style="height:10px"></div>
                      <div >
-                        <p><a href="#popup"data-role="button" data-mini="true" data-rel="dialog" data-transition="pop">About</a></p>
+                         <p><a href="#popup"data-role="button" data-mini="true" data-rel="dialog" data-transition="pop">About</a></p>
+                         <p><a href="http://www.jornal.us/cordova/radio/radioj.php" rel="external" id="busca_playerj"> Novo player</a></p>
+                         
                     </div>
                 </div><!-- /content -->
             
@@ -97,6 +110,20 @@
                 <h4>Nuvem Technologies</h4>
             </div><!-- /footer -->
         </div><!-- /page two -->
+     
+        <div data-role="page" id="page3" data-theme="a">
+            
+            <div data-role="header">
+            </div><!-- /header -->
+            
+            <div data-role="content" data-theme="a">
+                
+            </div><!-- /content -->
+            
+            <div data-role="footer">
+                <h4>Nuvem Technologies</h4>
+            </div><!-- /footer -->
+        </div><!-- /page 3 -->
         
         
         <!-- Start of third page: #popup -->

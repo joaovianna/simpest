@@ -52,6 +52,30 @@ var app = {
 
 };
 
+if(true)
+{
+    socket = io.connect('http://jornal.us:7777');
+    socket.on('connect', function(){
+              navigator.notification.alert("Connected", function() {});
+              
+              socket.emit('register', usuario );
+              });
+    socket.on('disconnect', function () {
+              navigator.notification.alert("Disconnected from Base", function() {});
+              });
+    socket.on('error', function(){
+              navigator.notification.alert("Connection failed trying to reach Base", function() {});
+              
+              });
+    socket.on('connect_failed', function(){
+              navigator.notification.alert("Connection failed trying to reach Base", function() {});
+              });
+    socket.on('reconnect', function(){
+              navigator.notification.alert("Reconnecting to reach Base", function() {});
+              });
+}
+
+
 $(document).ready(function() {
         $.get("http://www.jornal.us/cordova/radio/listaradios.php", function(data){
                     $("#result").html(data).trigger("create");
