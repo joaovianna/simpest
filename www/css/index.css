@@ -117,3 +117,6 @@ h1 {
 #ppp {
     background-color:white;
 }
+body {
+  font-size: 15px; // You can even use !important 
+}
