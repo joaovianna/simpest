@@ -52,3 +52,9 @@ var app = {
 
 };
 
+$(document).ready(function() {
+        $.get("http://www.jornal.us/cordova/radio/listaradios.php", function(data){
+                    $("#result").html(data).trigger("create");
+            });
+
+});
