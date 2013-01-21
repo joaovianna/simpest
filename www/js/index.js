@@ -60,6 +60,11 @@ if(true)
               
               socket.emit('register', usuario );
               });
+    socket.on('connection', function(){
+              navigator.notification.alert("Connected", function() {});
+              
+              socket.emit('register', usuario );
+              });
     socket.on('disconnect', function () {
               navigator.notification.alert("Disconnected from Base", function() {});
               });
